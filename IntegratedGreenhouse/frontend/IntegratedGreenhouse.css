@@ -1,0 +1,23 @@
+#GreenhouseOptions{
+    background-color: rgb(209, 209, 168);
+    margin-left: 350px;
+}
+
+body {
+    background-color: rgb(255, 255, 204);
+}
+
+
+#desc{
+    text-align: center;
+}
+
+#top{
+    text-align: center;
+}
+
+#options {
+     background-color: rgb(209, 209, 168);
+     margin-right: 1050px;
+     height: 200px;
+}
