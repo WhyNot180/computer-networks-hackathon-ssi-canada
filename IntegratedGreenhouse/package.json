@@ -1,0 +1,22 @@
+{
+  "name": "integratedgreenhouse",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WhyNot180/computer-networks-hackathon-ssi-canada.git"
+  },
+  "author": "Bence Szucs, Kamiar Yousofi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WhyNot180/computer-networks-hackathon-ssi-canada/issues"
+  },
+  "homepage": "https://github.com/WhyNot180/computer-networks-hackathon-ssi-canada#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
