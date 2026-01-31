@@ -10,6 +10,10 @@ const paths = fs.readdirSync("data",
 
 // Should ideally store this in a database store like MongoDB
 let soilData = {};
+let settings = {};
+
+// Use this to simulate time passing
+let soilCounter = 0;
 
 // Parse json sensor data
 paths.forEach(path => 
@@ -23,7 +27,8 @@ paths.forEach(path =>
                 {
                     const newSoilData = JSON.parse(soilFile);
                     let objectData = newSoilData.object;
-                    objectData.timestamp = newSoilData.time;
+                    if (!(soilData.hasOwnProperty(newSoilData.deviceInfo.applicationName)))
+                        soilData[newSoilData.deviceInfo.applicationName] = [];
                     soilData[newSoilData.deviceInfo.applicationName].push(objectData);
                 } catch (e)
                 {
@@ -36,12 +41,15 @@ paths.forEach(path =>
 
 const app = express();
 
+app.set('views', __dirname + '/frontend');
+app.set('view engine', 'pug');
+
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
     if (req.accepts("text/html"))
     {
-        res.render(__dirname + "/public/IntegratedGreenhouse.html", (err) =>
+        res.sendFile(__dirname + "/public/IntegratedGreenhouse.html", (err) =>
             {
                 if (err)
                 {
@@ -58,12 +66,22 @@ app.get("/", (req, res) => {
 app.get("/greenhouses/:name", (req, res) => {
     if (req.accepts("text/html"))
     {
-        res.render("greenhouse", soilData[req.params.name]);
+        res.render("IntegratedGreenhouse", {name: req.params.name});
     }
 });
 
+app.get("/greenhouse/:name/update", (req, res) => {
+    res.status(200).json(soilData[req.params.name][soilCounter]);
+    
+    // Simlulate the passing of time by switching to new data
+    soilCounter++;
+    if (soilCounter >= soilData[req.params.name].length) soilCounter = soilData[req.params.name].length;
+});
 
 app.post("/greenhouses/:name/settings", express.json());
-app.post("/greenhouses/:name/", (req, res) => {
-    if (req.)
+app.post("/greenhouses/:name/settings", (req, res) => {
+    settings[req.params.name] = req.body;
+    res.sendStatus(201);
 });
+
+app.listen(2000);
