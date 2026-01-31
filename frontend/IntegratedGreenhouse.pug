@@ -1,0 +1,41 @@
+doctype html
+html
+    head
+        meta( charset='utf-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        title Integrated Greenhouse Device
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        script(src="IntegratedGreenhouse.js" defer)
+        link(rel="stylesheet" href="IntegratedGreenhouse.css")
+
+    body
+        h1(id="top") Integrated Greenhouse
+        p(id ="desc") Welcome to the Integrated Greenhouse Dataset. You can select the state of each Greenhouse here
+        br
+        br
+        div(id = "GreenhouseOptions")
+            p ffffff
+        
+
+        div(id="options")
+            h2 Settings
+            form(action = `/greenhouses/${name}/settings` method="post")
+                label(for = "temp">) Temperature C :
+                input(type=" text " id ="temp" name="temp") 
+                br
+                br
+                label(for = "humidity") Humidity % :
+                input(type=" number " step="any" id ="humidity" name="humidity")
+                br
+                br
+                label(for = "Soil") Soil value :
+                input(type=" number " id ="Soil" name="Soil")
+                br 
+                br
+                input(type="submit" value="submit")
+            
+    
+
+
+
+
