@@ -1,6 +1,10 @@
-package integrated-greenhouse;
+package hackathon.IntegratedGreenhouse;
 
-public static void main(String[] args)
+class IntegratedGreenhouse
 {
+    public static void main(String[] args)
+    {
+
+    }
 
 }
