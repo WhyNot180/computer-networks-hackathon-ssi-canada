@@ -44,12 +44,12 @@ const app = express();
 app.set('views', __dirname + '/frontend');
 app.set('view engine', 'pug');
 
-app.use(express.static("public"));
+app.use(express.static("frontend"));
 
 app.get("/", (req, res) => {
     if (req.accepts("text/html"))
     {
-        res.sendFile(__dirname + "/public/IntegratedGreenhouse.html", (err) =>
+        res.sendFile(__dirname + "/frontend/IntegratedGreenhouse.html", (err) =>
             {
                 if (err)
                 {

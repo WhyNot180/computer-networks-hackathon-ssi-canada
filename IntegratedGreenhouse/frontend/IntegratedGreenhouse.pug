@@ -5,8 +5,8 @@ html
         meta(http-equiv='X-UA-Compatible' content='IE=edge')
         title Integrated Greenhouse Device
         meta(name='viewport' content='width=device-width, initial-scale=1')
-        script(src="IntegratedGreenhouse.js" defer)
-        link(rel="stylesheet" href="IntegratedGreenhouse.css")
+        script(src="/IntegratedGreenhouse.js" defer)
+        link(rel="stylesheet" href="/IntegratedGreenhouse.css")
 
     body
         h1(id="top") Integrated Greenhouse
@@ -20,7 +20,7 @@ html
         div(id="options")
             h2 Settings
             form(action = `/greenhouses/${name}/settings` method="post")
-                label(for = "temp">) Temperature C :
+                label(for = "temp") Temperature C :
                 input(type=" text " id ="temp" name="temp") 
                 br
                 br
